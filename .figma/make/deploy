@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+npm run build
+[[ -d "dist/figma-angular-lab/browser" ]] || {
+  echo "Expected build output at dist/figma-angular-lab/browser" >&2
+  exit 1
+}
+figma make deploy --build-dir "dist/figma-angular-lab/browser"

@@ -1,0 +1,10 @@
+{
+  "description": "A setup and verification workflow that prepares imported projects for deployment and preview, helping teams validate launch readiness.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
