@@ -1,0 +1,121 @@
+<div class="home-container">
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="badge-row">
+      <span class="badge badge-figma">
+        <svg class="icon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor">
+          <path d="M5 5.5A3.5 3.5 0 0 1 8.5 2H12v7H8.5A3.5 3.5 0 0 1 5 5.5z" fill="#F24E1E" stroke="none"/>
+          <path d="M12 2h3.5a3.5 3.5 0 1 1 0 7H12V2z" fill="#FF7262" stroke="none"/>
+          <path d="M12 12.5a3.5 3.5 0 1 1 7 0 3.5 3.5 0 1 1-7 0z" fill="#1ABCFE" stroke="none"/>
+          <path d="M5 12.5A3.5 3.5 0 0 1 8.5 9H12v7H8.5A3.5 3.5 0 0 1 5 12.5z" fill="#A259FF" stroke="none"/>
+          <path d="M5 19.5A3.5 3.5 0 0 1 8.5 16H12v3.5a3.5 3.5 0 1 1-7 0z" fill="#0ACF83" stroke="none"/>
+        </svg>
+        Figma Make Ready
+      </span>
+      <span class="badge badge-angular">Angular Standalone</span>
+      <span class="badge badge-status">Setup Complete</span>
+    </div>
+
+    <h1 class="hero-title">Figma + Angular Design Lab</h1>
+    <p class="hero-subtitle">
+      A lightweight, modular playground tailored for UI/UX Designers to experiment with
+      design tokens, component translation, and Figma-to-code workflows.
+    </p>
+
+    <div class="hero-actions">
+      <!-- Click Me Trigger Button -->
+      <button
+        #clickMeBtn
+        type="button"
+        class="btn btn-click-me"
+        (click)="openModal(clickMeBtn)"
+        aria-haspopup="dialog"
+      >
+        <span class="btn-icon">✨</span>
+        Click Me
+      </button>
+
+      <a routerLink="/design-system" class="btn btn-primary">
+        Browse Design Tokens & Components
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </a>
+      <a href="#workflow" class="btn btn-secondary">Design Workflow</a>
+    </div>
+  </section>
+
+  <!-- Features Grid -->
+  <section class="features-grid">
+    <div class="card">
+      <div class="card-icon card-icon-figma">🎨</div>
+      <h3>Design System Ready</h3>
+      <p>
+        Built with SCSS variables and modern CSS tokens matching Figma design styles—colors,
+        typography scales, spacing units, and border radiuses.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-icon card-icon-angular">⚡</div>
+      <h3>Modern Angular Architecture</h3>
+      <p>
+        Clean standalone components, TypeScript type safety, and Angular routing without
+        unnecessary boilerplate or nested folders.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-icon card-icon-github">🐙</div>
+      <h3>GitHub Ready</h3>
+      <p>
+        Organized according to industry standard best practices so you can easily push to GitHub
+        when you're ready to share or collaborate.
+      </p>
+    </div>
+  </section>
+
+  <!-- Workflow / Next Steps -->
+  <section id="workflow" class="workflow-section">
+    <div class="section-header">
+      <h2>Recommended Next Steps for Designers</h2>
+      <p>Here is how you can use this project to experiment with your Figma designs:</p>
+    </div>
+
+    <div class="steps-container">
+      <div class="step-item">
+        <div class="step-number">1</div>
+        <div class="step-content">
+          <h4>Review Design Tokens</h4>
+          <p>Check the <a routerLink="/design-system">Design System page</a> to see how colors, buttons, and typography tokens map from design specs to code.</p>
+        </div>
+      </div>
+
+      <div class="step-item">
+        <div class="step-number">2</div>
+        <div class="step-content">
+          <h4>Translate Figma Frames to Components</h4>
+          <p>Create new standalone components under <code>src/app/components</code> to recreate your Figma components (cards, navigation bars, modals).</p>
+        </div>
+      </div>
+
+      <div class="step-item">
+        <div class="step-number">3</div>
+        <div class="step-content">
+          <h4>Connect to GitHub & Figma Make</h4>
+          <p>Whenever you're ready, initialize git and push to GitHub to enable collaborative design reviews and automated deployment.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reusable Welcome Popup Modal -->
+  <app-modal
+    [isOpen]="isModalOpen()"
+    [title]="'Welcome!'"
+    [message]="'This is made by Belal'"
+    [triggerElement]="modalTrigger"
+    (close)="closeModal()"
+    (accept)="handleModalAccept()"
+  />
+</div>

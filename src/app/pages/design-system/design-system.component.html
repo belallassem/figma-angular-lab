@@ -1,0 +1,110 @@
+<div class="ds-container">
+  <!-- Page Header -->
+  <header class="ds-header">
+    <div class="breadcrumb">
+      <a routerLink="/" class="back-link">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+        Back to Overview
+      </a>
+    </div>
+    <h1>Design Tokens & UI Sandbox</h1>
+    <p>
+      An interactive preview of how design tokens defined in Figma styles map directly into
+      SCSS variables and Angular component templates.
+    </p>
+  </header>
+
+  <!-- Section 1: Color Tokens -->
+  <section class="ds-section">
+    <div class="section-title-wrap">
+      <h2>1. Color Tokens</h2>
+      <span class="section-badge">Mapped from Figma Styles</span>
+    </div>
+
+    <div class="tokens-grid">
+      @for (token of colorTokens; track token.name) {
+        <div class="token-card">
+          <div class="token-swatch" [style.background-color]="token.hex"></div>
+          <div class="token-info">
+            <span class="token-name">{{ token.name }}</span>
+            <span class="token-hex"><code>{{ token.hex }}</code></span>
+            <span class="token-var"><code>{{ token.variable }}</code></span>
+            <p class="token-desc">{{ token.description }}</p>
+          </div>
+        </div>
+      }
+    </div>
+  </section>
+
+  <!-- Section 2: Interactive Component Playground -->
+  <section class="ds-section">
+    <div class="section-title-wrap">
+      <h2>2. Button Component States (Angular Signals)</h2>
+      <span class="section-badge">Interactive Test</span>
+    </div>
+
+    <div class="playground-card">
+      <div class="playground-header">
+        <p>Test interactive states and reactivity powered by Angular Signals:</p>
+        <div class="counter-badge">
+          Button clicks: <strong>{{ clickCount() }}</strong>
+        </div>
+      </div>
+
+      <div class="button-row">
+        <button class="btn btn-primary" (click)="incrementCounter()">
+          Primary Action (+1)
+        </button>
+        <button class="btn btn-secondary" (click)="incrementCounter()">
+          Secondary Action
+        </button>
+        <button class="btn btn-outline" (click)="incrementCounter()">
+          Outline Variant
+        </button>
+        <button class="btn btn-ghost" (click)="resetCounter()">
+          Reset Count
+        </button>
+        <button class="btn btn-disabled" disabled>
+          Disabled State
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: Typography Scales -->
+  <section class="ds-section">
+    <div class="section-title-wrap">
+      <h2>3. Typography Scales</h2>
+      <span class="section-badge">Type Hierarchy</span>
+    </div>
+
+    <div class="type-specimen-card">
+      <div class="type-row">
+        <span class="type-meta">Display / 40px / Bold</span>
+        <h1 class="sample-display">Figma Make Integration</h1>
+      </div>
+      <div class="type-row">
+        <span class="type-meta">Heading 1 / 28px / SemiBold</span>
+        <h2 class="sample-h1">Bridging Design & Engineering</h2>
+      </div>
+      <div class="type-row">
+        <span class="type-meta">Heading 2 / 20px / Medium</span>
+        <h3 class="sample-h2">Design token synchronization</h3>
+      </div>
+      <div class="type-row">
+        <span class="type-meta">Body / 16px / Regular</span>
+        <p class="sample-body">
+          Every component in this Angular application is built as a standalone unit,
+          making it effortless to copy and match with modular Figma components.
+        </p>
+      </div>
+      <div class="type-row">
+        <span class="type-meta">Caption / 13px / Muted</span>
+        <span class="sample-caption">Last synced with Figma design specifications · Ready for Git</span>
+      </div>
+    </div>
+  </section>
+</div>
+

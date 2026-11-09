@@ -1,0 +1,116 @@
+.app-layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-navbar {
+  background-color: var(--color-bg-card);
+  border-bottom: 1px solid var(--color-border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: var(--shadow-sm);
+
+  .navbar-container {
+    max-width: 1040px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-lg);
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-md);
+  }
+
+  .navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    font-weight: 700;
+    font-size: 1.0625rem;
+    color: var(--color-text-main);
+
+    .brand-icon {
+      display: flex;
+      align-items: center;
+    }
+
+    .brand-title {
+      letter-spacing: -0.01em;
+    }
+  }
+
+  .navbar-links {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+
+    .nav-link {
+      padding: 8px 14px;
+      border-radius: var(--radius-md);
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--color-text-muted);
+      transition: all 0.15s ease;
+
+      &:hover {
+        color: var(--color-text-main);
+        background-color: var(--color-bg-subtle);
+      }
+
+      &.active {
+        color: var(--color-primary);
+        background-color: #f0f7ff;
+      }
+    }
+  }
+
+  .navbar-meta {
+    .env-pill {
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      background-color: var(--color-bg-subtle);
+      color: var(--color-text-muted);
+      border: 1px solid var(--color-border);
+    }
+  }
+}
+
+.app-content {
+  flex: 1;
+}
+
+.app-footer {
+  border-top: 1px solid var(--color-border);
+  background-color: var(--color-bg-card);
+  padding: var(--spacing-xl) var(--spacing-lg);
+  margin-top: auto;
+  text-align: center;
+
+  .footer-container {
+    max-width: 1040px;
+    margin: 0 auto;
+
+    p {
+      font-size: 0.875rem;
+      color: var(--color-text-muted);
+      font-weight: 500;
+    }
+
+    .footer-sub {
+      margin-top: 4px;
+      font-size: 0.75rem;
+      color: var(--color-text-light);
+    }
+  }
+}
+
+@media (max-width: 640px) {
+  .app-navbar .navbar-meta {
+    display: none;
+  }
+}
+
