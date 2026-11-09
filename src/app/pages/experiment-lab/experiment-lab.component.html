@@ -1,0 +1,145 @@
+<div class="lab-container">
+  <!-- 1. Hero Section -->
+  <section class="lab-hero">
+    <div class="eyebrow-wrap">
+      <span class="eyebrow-label">DESIGN × DEVELOPMENT EXPERIMENT</span>
+    </div>
+
+    <h1 class="hero-title">Created by Belal</h1>
+
+    <p class="hero-desc">
+      An experimental workspace exploring the connection between Figma Make, GitHub, and Angular.
+      Built to test how product designers can collaborate with development workflows through visual
+      editing, version control, and pull requests.
+    </p>
+
+    <div class="badges-row">
+      <span class="badge badge-angular">
+        <span class="badge-dot"></span>
+        Angular Application
+      </span>
+      <span class="badge badge-figma-github">
+        <span class="badge-dot"></span>
+        Figma Make × GitHub
+      </span>
+    </div>
+  </section>
+
+  <!-- 2. Overview Metric Cards -->
+  <section class="metrics-section">
+    <div class="metrics-grid">
+      @for (card of metricCards; track card.title) {
+        <div class="metric-card">
+          <div class="card-top">
+            <span class="metric-title">{{ card.title }}</span>
+            <span class="metric-icon" aria-hidden="true">{{ card.icon }}</span>
+          </div>
+          <div class="metric-value">{{ card.value }}</div>
+          <p class="metric-desc">{{ card.description }}</p>
+        </div>
+      }
+    </div>
+  </section>
+
+  <!-- 3. Recent Experiments Activity Table -->
+  <section class="table-section">
+    <div class="section-header">
+      <div class="header-left">
+        <h2>Recent Experiments</h2>
+        <span class="section-tag">Dummy Activity Data</span>
+      </div>
+      <p class="section-sub">Live audit log of design changes across Antigravity, Figma Make, and GitHub.</p>
+    </div>
+
+    <div class="table-wrapper">
+      <table class="activity-table">
+        <thead>
+          <tr>
+            <th scope="col">Experiment</th>
+            <th scope="col">Platform</th>
+            <th scope="col">Status</th>
+            <th scope="col">Created By</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (row of recentExperiments; track row.experiment) {
+            <tr class="table-row">
+              <td class="cell-experiment">
+                <span class="experiment-name">{{ row.experiment }}</span>
+              </td>
+              <td class="cell-platform">
+                <span class="platform-pill" [attr.data-platform]="row.platform">
+                  {{ row.platform }}
+                </span>
+              </td>
+              <td class="cell-status">
+                <span
+                  class="status-badge"
+                  [class.status-completed]="row.status === 'Completed'"
+                  [class.status-progress]="row.status === 'In Progress'"
+                >
+                  <span class="status-indicator"></span>
+                  {{ row.status }}
+                </span>
+              </td>
+              <td class="cell-author">
+                <div class="author-wrap">
+                  <span class="author-avatar">{{ row.createdBy.charAt(0) }}</span>
+                  <span class="author-name">{{ row.createdBy }}</span>
+                </div>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- 4. Workflow Visualization Section -->
+  <section class="workflow-section">
+    <div class="section-header">
+      <h2>Our Design-to-Code Workflow</h2>
+      <p class="section-sub">How changes flow from AI-assisted authoring in Antigravity to Figma Make and production merge.</p>
+    </div>
+
+    <div class="workflow-pipeline">
+      @for (step of workflowSteps; track step.name; let isLast = $last) {
+        <div class="workflow-step-card">
+          <div class="step-icon-wrap">{{ step.icon }}</div>
+          <div class="step-text">
+            <span class="step-title">{{ step.name }}</span>
+            <span class="step-desc">{{ step.description }}</span>
+          </div>
+        </div>
+
+        @if (!isLast) {
+          <div class="pipeline-arrow" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </div>
+        }
+      }
+    </div>
+  </section>
+
+  <!-- 5. Experiment Information Card -->
+  <section class="about-card-section">
+    <div class="highlight-info-card">
+      <div class="info-card-top">
+        <div class="info-icon">💡</div>
+        <h3 class="info-title">About This Experiment</h3>
+      </div>
+      <p class="info-content">
+        This project was created by Belal to explore how product designers can work directly with
+        real Angular applications using Figma Make and GitHub. The goal is to understand how visual
+        design changes can be translated into production code, reviewed through pull requests, and
+        synchronized with a local development environment.
+      </p>
+      <div class="info-footer">
+        <span class="info-footer-tag">Created by Belal • Angular × GitHub × Figma Make</span>
+      </div>
+    </div>
+  </section>
+</div>
+
